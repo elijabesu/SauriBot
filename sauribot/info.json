@@ -1,0 +1,9 @@
+{
+    "author" : "saurichable",
+    "short" : "Custom commands",
+    "description" : "Custom commands",
+    "disabled" : false,
+    "name" : "sauribot",
+    "tags" : [""],
+    "install_msg" : "Custom commands"
+}

@@ -1,0 +1,9 @@
+{
+    "author" : "saurichable",
+    "short" : "Custom help message",
+    "description" : "Custom help message",
+    "disabled" : false,
+    "name" : "saurihelp",
+    "tags" : [""],
+    "install_msg" : "Custom help message"
+}
