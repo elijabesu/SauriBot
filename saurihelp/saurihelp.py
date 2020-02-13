@@ -20,7 +20,7 @@ Cog: Any = getattr(commands, "Cog", object)
 class SauriHelp(Cog):
 
     __author__ = "saurichable"
-    __version__ = "1.0.0"
+    __version__ = "1.0.0-rc1"
 
     def __init__(self, bot: Red):
         self.bot = bot
