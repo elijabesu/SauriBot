@@ -16,18 +16,12 @@ class SauriBot(getattr(commands, "Cog", object)):
         self.bot = bot
 
     @checks.is_owner()
+    @checks.bot_has_permissions(manage_messages=True)
     @commands.command(aliases=["ss"])
     async def silentsay(self, ctx: commands.Context, *, message: str):
-        """Say things as the bot and deletes the command if it can"""
+        """Say things as the bot and deletes the command."""
         await ctx.message.delete()
         await ctx.send(message)
-
-    @commands.command()
-    async def donate(self, ctx: commands.Context):
-        """Donate to the development of SauriBot!"""
-        await ctx.send(
-            "Support SauriCord, SauriBot and Ellie by becoming our Patron https://patreon.com/saurichable <:sauriheart:528330433918664705>"
-        )
 
     @commands.command()
     async def social(self, ctx: commands.Context):
@@ -44,9 +38,8 @@ class SauriBot(getattr(commands, "Cog", object)):
     @commands.command()
     async def owner(self, ctx: commands.Context):
         """Get basic information about my owner."""
-        bot = self.bot
-        music = """Stray Kids, Monsta X, ONEUS, Ateez, Jacob Lee, Bring Me The Horizon, Day6, SHINee, TAEMIN, VIXX, The Rose, PENTAGON, Astro"""
-        games = """Overwatch, Destiny 2, Apex Legends, R6: Siege, PAYDAY2, Portal, Half-Life, BioShock, Arma 3, Subnautica, This War of Mine"""
+        music = """Monsta X, ATEEZ, ONEUS, Stray Kids, The Rose, Jacob Lee, The Neighbourhood, Bring Me The Horizon, Day6, TAEMIN, PENTAGON, BTS, Lauv"""
+        games = """Beat Saber, Overwatch, R6: Siege, PAYDAY2, Portal, Half-Life, BioShock, Arma 3, Subnautica, This War of Mine"""
         bnet = """saurichable#2151 (main), CarryMeDaddy#2550, Ǣllie#2586, StanMonstaX#2938"""
         em = discord.Embed(colour=int("ffa0ba", 16))
         em.description = "Basic information about the owner."
@@ -78,16 +71,13 @@ class SauriBot(getattr(commands, "Cog", object)):
         em.add_field(name="**Favourite music:**", value=music, inline=False)
         em.set_author(name="Ellie~♡#0001", icon_url="https://i.imgur.com/n5J4GQv.png")
         em.set_footer(
-            text="{0}#{1} is a private bot hosted by Ellie~♡#0001. If you have any inquiries, DM me.".format(
-                bot.user.name, bot.user.discriminator
-            )
+            text=f"{self.bot.user.name}#{self.bot.user.discriminator} is a private bot hosted by Ellie~♡#0001. If you have any inquiries, DM me."
         )
         await ctx.send(embed=em)
 
     @commands.command()
     async def funfact(self, ctx: commands.Context):
         """Get a random funfact about Ellie."""
-        bot = self.bot
         facts = [
             "Ellie's favourite animal is a dog :dog:",  # 1
             "Ellie's favourite dog breed is German Shepherd :wolf:",  # 2
@@ -148,8 +138,6 @@ class SauriBot(getattr(commands, "Cog", object)):
             name="Ellie~♡#0001's fun fact", icon_url="https://i.imgur.com/n5J4GQv.png"
         )
         em.set_footer(
-            text="{0}#{1} is a private bot hosted by Ellie~♡#0001. If you have any inquiries, DM me.".format(
-                bot.user.name, bot.user.discriminator
-            )
+            text=f"{self.bot.user.name}#{self.bot.user.discriminator} is a private bot hosted by Ellie~♡#0001. If you have any inquiries, DM me."
         )
         await ctx.send(embed=em)
